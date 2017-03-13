@@ -60,7 +60,8 @@ var changeBoard = (change) => {
 
 renderBoard();
 var rl = readline.createInterface(process.stdin, process.stdout);
-rl.setPrompt('Choose a Space  > ');
+console.log('Player ' + currentTurnPlayer + ', choose a spot');
+rl.setPrompt('> ');
 rl.prompt();
 rl.on('line', (input) => {
   changeBoard(input);
@@ -71,6 +72,7 @@ rl.on('line', (input) => {
   } else {
     renderBoard();
     currentTurnPlayer = (currentTurnPlayer === '1') ? '2' : '1';
+    console.log('Player ' + currentTurnPlayer + ', choose a spot');
     rl.prompt();
   }
 }).on('close', () => {
